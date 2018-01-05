@@ -1,0 +1,4 @@
+.content, .buttons, .rating {
+  display: inline-block;
+  margin-left: 1em;
+}
