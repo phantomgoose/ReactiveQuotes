@@ -15,14 +15,14 @@ class Quotes extends Component {
 
   handleNewQuote(event) {
     event.preventDefault();
-    const data = {};
+    const newQuote = {};
     const formData = new FormData(event.target);
     formData.forEach((value, key) => {
-      data[key] = value;
+      newQuote[key] = value;
     });
-    data.rating = 0;
+    newQuote.rating = 0;
     const quotes = this.state.quotes.slice();
-    this.setState({ quotes: quotes.concat([data]) });
+    this.setState({ quotes: quotes.concat([newQuote]) });
   }
 
   handleDeleteQuote(idxToRemove) {

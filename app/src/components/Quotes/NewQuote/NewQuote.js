@@ -6,8 +6,10 @@ class NewQuote extends Component {
     this.state = {
       content: "",
       author: "",
+      showWarning: false,
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -17,15 +19,29 @@ class NewQuote extends Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    if (!this.formIsValid()) {
+      this.setState({ showWarning: true });
+    } else {
+      this.props.handleNewQuote(event);
+      this.setState({
+        content: "",
+        author: "",
+        showWarning: false,
+      });
+    }
+  }
+
   formIsValid() {
     return this.state.author.length > 2 && this.state.content.length > 2;
   }
 
   render() {
     return (
-      <form onSubmit={this.props.handleNewQuote}>
+      <form onSubmit={this.handleSubmit}>
         <textarea
-          value={this.state.quote}
+          value={this.state.content}
           name="content"
           onChange={this.handleChange}
         />
@@ -40,7 +56,10 @@ class NewQuote extends Component {
           />
         </label>
         <br />
-        <input type="submit" value="Add Quote" disabled={!this.formIsValid()} />
+        <input type="submit" value="Add Quote" />
+        {this.state.showWarning ? (
+          <p>Quote and name must be at least 3 characters long!</p>
+        ) : null}
       </form>
     );
   }
