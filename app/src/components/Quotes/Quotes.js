@@ -3,17 +3,11 @@ import NewQuote from "./NewQuote/NewQuote";
 import QuotesList from "./QuotesList/QuotesList";
 
 class Quotes extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quotes: [],
-    };
-    this.handleNewQuote = this.handleNewQuote.bind(this);
-    this.incrementRating = this.incrementRating.bind(this);
-    this.handleDeleteQuote = this.handleDeleteQuote.bind(this);
+  state = {
+    quotes: [],
   }
 
-  handleNewQuote(event) {
+  handleNewQuote = (event) => {
     event.preventDefault();
     const newQuote = {};
     const formData = new FormData(event.target);
@@ -25,14 +19,14 @@ class Quotes extends Component {
     this.setState({ quotes: quotes.concat([newQuote]) });
   }
 
-  handleDeleteQuote(idxToRemove) {
+  handleDeleteQuote = (idxToRemove) => {
     const quotes = this.state.quotes.filter((value, idx) => {
       return idx !== idxToRemove;
     });
     this.setState({ quotes: quotes });
   }
 
-  incrementRating(idx, value) {
+  incrementRating = (idx, value) => {
     this.setState((prev, props) => {
       const quotes = prev.quotes.slice();
       quotes[idx].rating += value;

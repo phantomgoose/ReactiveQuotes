@@ -17,14 +17,14 @@ class QuotesList extends Component {
 
           return (
             <Quote
-              key={index}
+              key={index} // <-- this is bad
               content={quote.content}
               author={quote.author}
               rating={quote.rating}
               incrementRating={incrementRating}
               handleDeleteQuote={handleDeleteQuote}
             />
-          ); // dont do that with keys tho
+          );
         });
   }
 }
