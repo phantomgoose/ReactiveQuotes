@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import QuoteButton from "./QuoteButton/QuoteButton";
+import QuoteButton from "../QuoteButton/QuoteButton";
 import "./Quote.css";
 
 class Quote extends Component {
