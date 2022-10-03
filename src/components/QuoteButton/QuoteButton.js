@@ -1,14 +1,5 @@
-import React, { Component } from "react";
-import "./QuoteButton.css";
+import styles from "./QuoteButton.module.css";
 
-class QuoteButton extends Component {
-  render() {
-    return (
-      <button className={this.props.buttonColor} onClick={this.props.handler}>
-        {this.props.buttonName}
-      </button>
-    );
-  }
-}
+const QuoteButton = ({ text, handleClick }) => <button className={styles[text]} onClick={handleClick}>{text}</button>;
 
 export default QuoteButton;
