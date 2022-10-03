@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NewQuote from "./NewQuote/NewQuote";
-import QuotesList from "./QuotesList/QuotesList";
+import NewQuote from "../NewQuote/NewQuote";
+import QuotesList from "../QuotesList/QuotesList";
 
-class Quotes extends Component {
+class App extends Component {
   state = {
     quotes: [],
   }
@@ -48,4 +48,4 @@ class Quotes extends Component {
   }
 }
 
-export default Quotes;
+export default App;

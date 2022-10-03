@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Quote from "./Quote/Quote";
+import Quote from "../Quote/Quote";
 
 class QuotesList extends Component {
   render() {
